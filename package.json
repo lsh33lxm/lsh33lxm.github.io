@@ -1,0 +1,12 @@
+{
+  "name": "lsh33lxm.github.io",
+  "version": "1.0.0",
+  "private": true,
+  "description": "应用统计、AI 实践与学习记录的个人主页",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "node scripts/serve.mjs",
+    "check": "node scripts/build.mjs --check"
+  },
+  "engines": { "node": ">=18" }
+}

@@ -1,0 +1,102 @@
+{
+  "profile": {
+    "name": "lshlxm",
+    "identity": "西安交通大学 · 应用统计硕士",
+    "intro": "学习统计，动手做工具，\n把过程写下来。",
+    "summary": "这里记录我对统计与数据的关注，也收集 AI 工具实践和学习笔记。希望每一次尝试，都能留下可回看、可复现的东西。",
+    "about": [
+      "我是一名应用统计专业的硕士生。这个网站用来放下几件值得慢慢做的事：理解数据，学习统计方法，以及动手尝试 AI 工具。",
+      "目前的公开记录主要围绕 LangChain / RAG 学习、Agent 工具和环境配置展开。比起只记住一个结论，我更希望保留来源、运行过程与遇到的问题，让下一次学习有据可循。"
+    ],
+    "email": null,
+    "photo": null
+  },
+  "site": {
+    "url": "https://lsh33lxm.github.io/",
+    "title": "lshlxm · 应用统计与 AI 实践",
+    "description": "西安交通大学应用统计硕士 lshlxm 的个人主页：统计与数据、LangChain / RAG 学习、Agent 工具实践和公开学习记录。",
+    "updated": "2026-10-14"
+  },
+  "links": {
+    "github": "https://github.com/lsh33lxm",
+    "xiaohongshu": "https://www.xiaohongshu.com/user/profile/60e3b7520000000001001c21?tab=note",
+    "notes": "https://github.com/lsh33lxm/minnn-learning-notes"
+  },
+  "projects": [
+    {
+      "title": "让视频教程变成可执行的步骤",
+      "name": "Bilibili → Agent Runbook",
+      "kind": "工具项目",
+      "description": "看完教程之后，如何把操作过程交给 Agent？这个本地工具串起视频下载、压缩和多模态解析，输出 Runbook、Codex Prompt 与 Hermes Agent Runbook。",
+      "contribution": "公开实现：本地网页配置、连接测试、任务进度与日志、Markdown 预览及下载。模型输出仍需要人工核对。",
+      "url": "https://github.com/lsh33lxm/bilibili-video-to-agent-runbook",
+      "source": "公开仓库 README 与代码目录；非 fork。个人分工尚未补充。"
+    },
+    {
+      "title": "把 LangChain 与 RAG 学习串起来",
+      "name": "LangChain / RAG",
+      "kind": "资料整理 · 教程复现",
+      "description": "分散在不同教程里的示例不容易对照学习。这个仓库按来源整理三套资料，保留可逐步运行的 Notebook，以及已有输出的对照版本。",
+      "contribution": "整理范围：教程来源、主 Notebook 依赖和学习顺序。示例来自公开教程，来源见仓库 README。",
+      "url": "https://github.com/lsh33lxm/Langchain",
+      "source": "公开 README 明确列出 QunBB、B 站与黑马教程来源；非 fork，但不属于原创算法成果。"
+    },
+    {
+      "title": "给 AI 编程工具一个桌面工作台",
+      "name": "BulletFarm",
+      "kind": "工具项目",
+      "description": "同时使用多个 AI 编程终端时，窗口与配置容易散落。BulletFarm 将 Agent 终端、工作区、供应商配置和用量看板放到一个桌面应用里。",
+      "contribution": "公开实现：多终端管理、工作区持久化、配置切换，以及 Skills / Prompts / MCP 的集中管理。当前以 Windows 为主。",
+      "url": "https://github.com/lsh33lxm/BulletFarm",
+      "source": "公开 README 与源码；非 fork。未据此推断独立开发或个人贡献比例。"
+    },
+    {
+      "title": "为学习过程留一份可查的记录",
+      "name": "minnn-learning-notes",
+      "kind": "学习记录 · 资料归档",
+      "description": "把工具配置与 AI 学习过程按日期存下来。资料库包含安装配置、Skills、Hooks 等主题的 PDF 与配套脚本，方便回看具体步骤。",
+      "contribution": "归档范围：日期目录、PDF 学习材料与部分工具脚本。各材料的原创或整理属性需逐项确认，不将整个资料库视作原创成果。",
+      "url": "https://github.com/lsh33lxm/minnn-learning-notes",
+      "source": "公开 Git 树核实；仓库暂无根目录 README。"
+    }
+  ],
+  "writing": {
+    "intro": "把一次配置、一段学习，变成下次能找到的记录。以下标题来自公开资料库，链接直接指向原文件。",
+    "items": [
+      {
+        "title": "未来的教程不是给人看的，而是给 Agent 执行的",
+        "category": "AI 实践 · PDF",
+        "date": "2026-05-03",
+        "url": "https://github.com/lsh33lxm/minnn-learning-notes/blob/main/notes/ai/2026-05-03/2026.5.3未来的教程不是给人看的，而是给Agent执行的.pdf"
+      },
+      {
+        "title": "Codex 与 Claude Code 安装配置全流程",
+        "category": "工具配置 · PDF",
+        "date": "2026-03-01",
+        "url": "https://github.com/lsh33lxm/minnn-learning-notes/blob/main/notes/ai/2026-03-01/2026.3.1 codex与claude code安装配置全流程.pdf"
+      },
+      {
+        "title": "从 0 到 1 深度学习环境配置",
+        "category": "学习记录 · PDF",
+        "date": "2026-02-22",
+        "url": "https://github.com/lsh33lxm/minnn-learning-notes/blob/main/notes/ai/2026-02-22/2026.2.22.从0到1深度学习环境配置.pdf"
+      }
+    ],
+    "xiaohongshuItems": []
+  },
+  "interests": [
+    { "title": "统计与数据", "description": "关注方法的假设、结果的解释，以及不确定性如何影响判断。", "status": "关注" },
+    { "title": "检索与 Agent", "description": "从教程复现出发，理解 RAG 与 Agent 工作流如何落到具体问题。", "status": "学习与实践" },
+    { "title": "可复现的学习", "description": "保留资料来源、配置步骤与运行输出，让笔记能被再次使用。", "status": "持续记录" }
+  ],
+  "verification": {
+    "checkedAt": "2026-10-14",
+    "identitySource": "用户提供：西安交通大学应用统计专业硕士",
+    "nicknameSource": "GitHub /users/lsh33lxm 的公开 name：lshlxm",
+    "repositorySource": "GitHub 公开仓库列表、README 与 Git 树",
+    "writingDateSource": "日期来自仓库目录与文件名，并非额外核实的发表日期",
+    "xiaohongshu": "主页 URL 由用户提供；访问仅取得页面壳，未核实笔记内容",
+    "forksExcluded": ["magic-resume", "claude-code"],
+    "pending": ["展示姓名或昵称", "头像（可选）", "公开联系邮箱（可选）", "个人项目分工与贡献", "自我介绍与关注方向文案确认", "统计学习与项目复盘文章", "小红书单篇标题及稳定链接", "归档材料的作者与来源"]
+  }
+}
