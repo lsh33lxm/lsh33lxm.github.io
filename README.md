@@ -26,6 +26,7 @@ npm start
 | 文件 | 用途 |
 | --- | --- |
 | `content/site.json` | **主要编辑入口**：个人资料、项目、文章、关注方向、更新日期、来源与待补充项 |
+| `.gitattributes` | 统一文本换行，保证 Windows 和线上检出的构建一致 |
 | `templates/index.html` | 语义化页面模板，需改布局时编辑 |
 | `assets/style.css` | 色彩、字体、留白、手机布局、减少动态效果 |
 | `assets/favicon.svg` | 正态曲线图标 |
