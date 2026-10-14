@@ -1,8 +1,8 @@
-# lshlxm 的个人主页
+# Minnn 的个人主页
 
 ![个人主页分享预览](assets/share.png)
 
-**应用统计、AI 工具实践与学习记录。** 页面采用安静的米白底色、中文衬线标题与细线条，按「关于 → 作品 → 笔记 → 关注」组织内容。
+**应用统计、AI 工具实践与学习记录。** 页面采用浅色学术个人主页格式，930px 外层容器（正文有效宽度 900px）、34px 姓名、16px 衬线正文与 1.75 行高。栏目顺序为「姓名与身份 → 简介与头像 → 关注方向 → 近期动态（非空时）→ 最新文章 → 精选项目」。导航和辅助信息使用无衬线字体。
 
 - 网站：<https://lsh33lxm.github.io/>
 - 仓库：<https://github.com/lsh33lxm/lsh33lxm.github.io>
@@ -29,7 +29,8 @@ npm start
 | `.gitattributes` | 统一文本换行，保证 Windows 和线上检出的构建一致 |
 | `templates/index.html` | 语义化页面模板，需改布局时编辑 |
 | `assets/style.css` | 色彩、字体、留白、手机布局、减少动态效果 |
-| `assets/favicon.svg` | 正态曲线图标 |
+| `assets/avatar.png` | 本地保存的公开 GitHub 头像（人物拼贴图，非本人照片） |
+| `assets/favicon.svg` | 蓝色 M 字母图标 |
 | `assets/share.png` | 1200 × 630 分享预览图 |
 | `scripts/build.mjs` | 校验数据并生成完整 HTML、sitemap、robots |
 | `scripts/serve.mjs` | 只绑定本机的静态预览服务 |
@@ -39,9 +40,9 @@ npm start
 
 ### 修改个人资料
 
-编辑 `profile.name`、`identity`、`intro`、`summary` 与 `about`。`intro` 中的 `\n` 控制标题换行；同时更新 `site.title`、`site.description` 与 `site.updated`。
+编辑 `profile.name`、`identity` 与 `about`（介绍段落数组）；同时更新 `site.title`、`site.description` 与 `site.updated`。姓名直接作为主标题，不再使用宣传式首屏标题。旧版的 `intro`、`summary` 已移除。
 
-`profile.email` 默认为 `null`；填入你确认愿意公开的邮箱后，页尾自动出现邮件入口。`profile.photo` 当前保留为 `null`，第一版不展示头像；将来加照片需要在模板中增加图片与准确的替代文本。`verification` 只用于维护，不显示在网页上。
+`profile.email` 默认为 `null`；填入你确认愿意公开的邮箱后，头像旁自动出现邮件入口。`profile.photo` 为 `assets/` 中的本地图片路径，需同时填写 `photoAlt`（替代文本）和可选 `photoCaption`（图注）。当前头像来自 GitHub 公开资料，明确标为「GitHub 头像」，不是本人照片。设为 `null` 会自动切换为完整文字布局，联系链接放在简介之后，不生成占位圈。运行时不会请求 GitHub 头像服务。`verification` 只用于维护，不显示在网页上。
 
 ### 添加项目
 
@@ -61,6 +62,8 @@ npm start
 
 示例值仅供编辑说明，不会显示在网站。不能因为仓库不是 fork 就推断全部内容原创；教程整理必须保留来源，不把工具功能扩大成个人独立贡献。
 
+页面以 `name` 显示项目名，按纵向条目呈现简介、性质与工作范围。`title` 保留为内部中文概括。可选的 `readme`、`demo` 字段只在填入真实 HTTPS 链接时生成 Readme / Demo 入口；Code 使用 `url`。资料库暂无根目录 README，因此只显示 Code。没有经过核实的项目截图时保持纯文字格式。
+
 ### 添加文章
 
 在 `writing.items` 中增加一项；核实小红书单篇标题与稳定链接后，可放入 `writing.xiaohongshuItems`，它会出现在小红书入口下方。
@@ -74,14 +77,21 @@ npm start
 }
 ```
 
-不要提交 Cookie、访问令牌或临时签名链接。资料库条目的日期目前来自目录与文件名，不等同于额外核实过的发表日期。
+日期未知时使用 `"date": null` 或省略日期字段，页面不会补造日期。不要提交 Cookie、访问令牌或临时签名链接。资料库条目的日期目前来自目录与文件名，不等同于额外核实过的发表日期；「最新文章」栏目中的现有条目仍明确作为学习记录与归档材料展示。
+
+### 关注方向与近期动态
+
+`interests` 保留兴趣条目，页面展示标题与简短描述。只能表述关注、学习或实践，不将其包装为已取得的研究成果。
+
+`updates` 当前为空数组，**整段近期动态及对应导航自动隐藏**。未来添加真实事件时填写 `date`、`text`、`source`（核实依据，维护用）和可选 `url`。不要用代码提交日期替代个人经历。项目、关注方向、文章数据为空时，对应栏目与导航也会隐藏。
 
 ## 内容依据与待补充
 
 核实日期：**2026-10-14**。
 
 - 硕士身份：由本人在本次需求中提供，并非通过公开学籍验证。
-- `lshlxm`：GitHub 账号 `lsh33lxm` 的公开显示名称，暂作网站昵称。
+- `Minnn`：本轮用户明确指定的展示名，不推断真实姓名。
+- GitHub 头像：<https://avatars.githubusercontent.com/u/130129002?v=4>，2026-10-14 从账号公开 `avatar_url` 保存为本地图片。不是本人照片。
 - 四个精选项目：公开仓库列表、README、Git 树支持页面中的实现范围；均非 GitHub fork。**未据此声称独立开发、作者身份或个人贡献比例。**
 - Langchain：README 明确为三套教程整理；公开列出 QunBB、B 站与黑马来源，页面按资料整理与复现展示。
 - minnn-learning-notes：公开文件目录可访问，未发现根目录 README。三条笔记标题按文件名做空格、大小写整理，未为 PDF 增写内容摘要，也未将归档材料全部标为原创文章。
@@ -90,12 +100,11 @@ npm start
 - 旧站参考：本机 `D:\4.writing\fitness-ui-redesign\frontend\public\about-assets\site-data.json`，参考栏目组织；没有搬入旧站邮箱、详情地址或带临时访问参数的小红书单篇链接。
 - 审美参考：<https://jiaxuanzou0714.github.io/>，仅借鉴留白、字体层次与信息结构，未复制源码、文案、图片或经历。
 - 自我介绍与兴趣描述：依据用户指定定位与公开学习仓库拟定的第一版文案，待本人确认；不代表已经形成的研究成果或具体学习进度。
-- 密度图：标准正态分布 `f(x) = exp(-x²/2) / sqrt(2π)`，阴影表示 `P(-1 ≤ X ≤ 1) ≈ 0.6827`，不是个人实验数据。
+- 本轮移除了密度曲线、杂志式栏目双栏、项目编号和口号式标题，重做了模板与样式；原生静态构建与 Pages 发布流程保留。
 
 集中待填写（不在网页上显示生硬占位）：
 
-- [ ] 展示姓名或昵称：是否继续使用 `lshlxm`。
-- [ ] 照片：可选，当前无头像也完整可用。
+- [ ] 本人照片：可选，当前使用公开 GitHub 头像，也可通过 `photo: null` 关闭。
 - [ ] 愿意公开的联系邮箱：可选，当前用 GitHub / 小红书联系。
 - [ ] 各原创工具中的个人分工、协作信息与实际贡献。
 - [ ] 确认自我介绍、兴趣与学习方向文案。
@@ -153,8 +162,10 @@ node scripts/check-browser.cjs
 node scripts/share-image.cjs
 ```
 
-检查涵盖 320 / 390 / 768 / 1440px、横向及文本溢出、站内锚点、跳转正文、键盘焦点、减少动态效果、关闭 JavaScript、WCAG 2.1 AA 自动规则。报告与截图保存在被 Git 忽略的 `artifacts/`。自动检查不替代人工阅读与屏幕阅读器评估。
+检查涵盖 320 / 390 / 768 / 1440px、横向及文本溢出、站内锚点、头像加载、空动态隐藏、跳转正文、键盘焦点、减少动态效果、关闭 JavaScript、WCAG 2.1 AA 自动规则。另用独立数据夹具检查无头像、空栏目、长项目名、长链接、长文章名与无日期条目；夹具不会改写正式数据或发布页面。报告与截图保存在被 Git 忽略的 `artifacts/redesign/`，可设置 `CHECK_OUT` 改变目录，`CHECK_URL` 改为正式网址进行线上复验。自动检查不替代人工阅读与屏幕阅读器评估。
 
 本次开发使用环境已有的 Playwright，通过 `NODE_PATH` 指定其模块目录；axe-core 使用临时文件路径 `AXE_PATH`，未将工具库加入网站。
 
-预览图：`artifacts/desktop.png` 和 `artifacts/mobile.png`（本地检查生成）。网站运行时所有资源均在 `assets/`，字体使用系统中文回退，不请求外部 CDN。
+本轮截图：`artifacts/redesign/before-1440.png` 为改造前，`after-1440.png` 为改造后桌面，`after-390.png` 为改造后手机；`reference-1440.png`、`reference-390.png` 为同视口参考站截图，供本地视觉对照，不进入发布仓库。`*-full.png` 为完整页面。已有人工视觉检查覆盖宽屏、窄屏、手机、无头像与空栏目场景。
+
+网站运行时所有资源均在 `assets/`，字体使用 Georgia / Songti SC / STSong / SimSun 回退（正文常规字重），标题与辅助信息使用系统无衬线，不请求外部 CDN。`npm run build` 不依赖浏览器工具；只有重新生成分享图和浏览器检查需要可选工具。

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f7f4ee">
+  <meta name="theme-color" content="#f7f9fc">
   <title>{{TITLE}}</title>
   <meta name="description" content="{{DESCRIPTION}}">
   <link rel="canonical" href="{{URL}}">
@@ -26,49 +26,27 @@
 </head>
 <body id="top">
   <a class="skip-link" href="#main">跳到正文</a>
-  <header class="site-header wrap">
-    <a class="wordmark" href="#top" aria-label="{{NAME}} 首页">{{NAME}}<span aria-hidden="true">.</span></a>
-    <nav aria-label="主导航">
-      <a href="#about">关于</a><a href="#work">作品</a><a href="#writing">笔记</a><a href="#now">关注</a>
-    </nav>
+  <header class="site-header">
+    <nav class="container" aria-label="主导航">{{NAV}}</nav>
   </header>
-  <main id="main" class="wrap" tabindex="-1">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow">{{IDENTITY}}</p>
-        <h1 id="hero-title">{{INTRO}}</h1>
-        <p class="hero-summary">{{SUMMARY}}</p>
-        <div class="social-links">{{SOCIAL}}</div>
+  <main id="main" class="container" tabindex="-1">
+    <section id="about" class="about" aria-labelledby="profile-name">
+      <header class="profile-header">
+        <h1 id="profile-name">{{NAME}}</h1>
+        <p class="identity">{{IDENTITY}}</p>
+      </header>
+      <div class="intro-body{{PHOTO_CLASS}}">
+        <div class="biography">{{ABOUT}}{{CONTACT_INLINE}}</div>
+        {{PROFILE}}
       </div>
-      <figure class="density-figure">
-        <div class="figure-heading"><span>一点统计</span><span class="mono">FIG. 01</span></div>
-        {{DENSITY}}
-        <figcaption><span>标准正态分布</span><span class="mono">X ∼ N(0, 1)</span></figcaption>
-        <p class="figure-note">阴影区间 [−1, 1] 的概率约为 68.27%。<br>图形由概率密度公式绘制。</p>
-      </figure>
     </section>
-    <section id="about" class="section split-section" aria-labelledby="about-title">
-      <div class="section-label"><p class="eyebrow">01 / ABOUT</p><h2 id="about-title">从问题出发，<br>慢慢理解。</h2></div>
-      <div class="about-copy">{{ABOUT}}<p class="small-note">学习中的尝试与记录，随实践不断修订。</p></div>
-    </section>
-    <section id="work" class="section" aria-labelledby="work-title">
-      <div class="section-top"><div><p class="eyebrow">02 / SELECTED WORK</p><h2 id="work-title">做过的事</h2></div>{{ALL_REPOS}}</div>
-      <p class="section-intro">从公开仓库里选出几件工具实践与学习整理。</p>
-      <div class="project-list">{{PROJECTS}}</div>
-    </section>
-    <section id="writing" class="section" aria-labelledby="writing-title">
-      <div class="section-top"><div><p class="eyebrow">03 / NOTES & WRITING</p><h2 id="writing-title">写下来，留待回看。</h2></div>{{NOTES_LINK}}</div>
-      <p class="section-intro">{{WRITING_INTRO}}</p>
-      <div class="writing-list">{{WRITING}}</div>
-      <div class="xhs-line"><div><h3>小红书上的记录</h3><p>另一处交流与阅读的入口。</p></div>{{XHS_LINK}}</div>
-      {{XHS_ITEMS}}
-    </section>
-    <section id="now" class="section split-section" aria-labelledby="now-title">
-      <div class="section-label"><p class="eyebrow">04 / INTERESTS</p><h2 id="now-title">继续学习的方向</h2><p class="section-intro">问题还在，学习继续。</p></div>
-      <div class="interest-list">{{INTERESTS}}</div>
-    </section>
-    <section class="contact section" aria-labelledby="contact-title"><p class="eyebrow">KEEP IN TOUCH</p><h2 id="contact-title">欢迎交换想法。</h2><p>关于统计学习、AI 工具，或一个值得动手的问题。</p><div class="social-links">{{CONTACT}}</div></section>
+    {{INTERESTS_SECTION}}
+    {{UPDATES_SECTION}}
+    {{WRITING_SECTION}}
+    {{PROJECTS_SECTION}}
   </main>
-  <footer class="site-footer wrap"><p>© {{YEAR}} {{NAME}} <span class="footer-divider">/</span> 学习 · 实践 · 记录</p><p>更新于 <time datetime="{{UPDATED}}">{{UPDATED}}</time><a href="#top">回到顶部 ↑</a></p></footer>
+  <footer class="site-footer">
+    <div class="container"><p>© {{YEAR}} {{NAME}} · 更新于 <time datetime="{{UPDATED}}">{{UPDATED}}</time></p><a href="#top">回到顶部</a></div>
+  </footer>
 </body>
 </html>

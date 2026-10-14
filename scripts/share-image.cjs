@@ -1,18 +1,17 @@
 const { chromium } = require('playwright');
 const fs = require('node:fs/promises');
 const path = require('node:path');
-const esc = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 async function main() {
-  const root=path.resolve(__dirname,'..');
-  const data=JSON.parse(await fs.readFile(path.join(root,'content/site.json'),'utf8'));
-  const pageHtml=await fs.readFile(path.join(root,'index.html'),'utf8');
-  const curve=pageHtml.match(/<svg viewBox="0 0 380 226"[\s\S]*?<\/svg>/)[0];
-  const browser=await chromium.launch({headless:true});
+  const root = path.resolve(__dirname, '..');
+  const data = JSON.parse(await fs.readFile(path.join(root, 'content/site.json'), 'utf8'));
+  const photo = data.profile.photo ? `data:image/${path.extname(data.profile.photo).slice(1)};base64,${(await fs.readFile(path.join(root, data.profile.photo))).toString('base64')}` : null;
+  const browser = await chromium.launch({ headless: true });
   try {
-    const page=await browser.newPage({viewport:{width:1200,height:630},deviceScaleFactor:1});
-    await page.setContent(`<!doctype html><html lang="zh-CN"><meta charset="utf-8"><style>*{box-sizing:border-box}body{margin:0;background:#f7f4ee;color:#292b26;font-family:"Microsoft YaHei",sans-serif}.frame{margin:58px 72px;border-top:1px solid #d8d3c8;padding-top:30px}.name{font:32px Georgia,serif}.name span{color:#9b402b}.content{display:flex;align-items:center;gap:50px;margin-top:46px}.copy{width:610px}.identity{font-size:18px;color:#66675e}h1{font:44px/1.6 Georgia,"SimSun",serif;margin:22px 0 30px}.bottom{font-size:15px;letter-spacing:3px;color:#66675e}.figure{width:340px}.figure svg{width:100%}.caption{font-size:14px;color:#66675e;text-align:center}.url{font:15px Consolas,monospace;margin-top:36px;color:#9b402b}</style><div class="frame"><div class="name">${esc(data.profile.name)}<span>.</span></div><div class="content"><div class="copy"><div class="identity">${esc(data.profile.identity)}</div><h1>${esc(data.profile.intro).replaceAll('\n','<br>')}</h1><div class="bottom">统计与数据 / AI 实践 / 学习记录</div></div><div class="figure">${curve}<div class="caption">标准正态分布 · X ∼ N(0, 1)</div></div></div><div class="url">${esc(new URL(data.site.url).hostname)}</div></div></html>`);
-    await page.screenshot({path:path.join(root,'assets/share.png')});
+    const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
+    await page.setContent(`<!doctype html><html lang="zh-CN"><meta charset="utf-8"><style>*{box-sizing:border-box}body{margin:0;background:#f7f9fc;color:#101828;font-family:"Segoe UI","Microsoft YaHei",sans-serif}.frame{margin:70px 85px;border-top:1px solid #d4deeb;padding-top:65px}.content{display:flex;gap:65px;align-items:center}.copy{flex:1}h1{font-size:54px;margin:0 0 24px}.identity{font:24px/1.75 Georgia,SimSun,serif}.topics{font-size:19px;color:#526277;line-height:2;margin-top:30px}.photo{width:230px;text-align:center}.photo img{width:230px;height:230px;border-radius:50%;object-fit:cover}.photo p{font-size:13px;color:#526277}.url{font-size:19px;margin-top:74px;color:#115fb3}</style><div class="frame"><div class="content"><div class="copy"><h1>${esc(data.profile.name)}</h1><div class="identity">${esc(data.profile.identity)}</div><div class="topics">关注方向 · 学习资料 · 精选项目<br>应用统计 / LangChain &amp; RAG / AI 工具实践</div></div>${photo ? `<div class="photo"><img src="${photo}" alt="${esc(data.profile.photoAlt)}"><p>${esc(data.profile.photoCaption || '')}</p></div>` : ''}</div><div class="url">${esc(new URL(data.site.url).hostname)}</div></div></html>`);
+    await page.screenshot({ path: path.join(root, 'assets/share.png') });
     console.log('✓ 分享预览图 assets/share.png 已生成（1200 × 630）');
-  } finally {await browser.close();}
+  } finally { await browser.close(); }
 }
-main().catch(error=>{console.error(error);process.exitCode=1;});
+main().catch(error => { console.error(error); process.exitCode = 1; });
